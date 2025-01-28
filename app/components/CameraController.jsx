@@ -70,12 +70,12 @@ const CameraController = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center h-screen w-screen bg-gray-900 p-4">
       {/* 📷 Camera Frame (70% screen size) */}
-      <div className="w-full lg:w-[70%] h-[70vh] flex justify-center">
+      <div className="w-full lg:w-[70%] h-[70vh] rounded-lg flex justify-center overflow-hidden">
         <video
           ref={videoRef}
           autoPlay
           playsInline
-          className="w-full h-full rounded-lg object-cover"
+          className="w-full h-full  object-cover"
           style={{ filter, transform: `scale(${zoom})` }}
         />
       </div>
@@ -83,12 +83,12 @@ const CameraController = () => {
       {/* 🎮 Controller Panel */}
       <div className="w-full lg:w-[30%] flex flex-col lg:ml-6 mt-6 lg:mt-0 lg:space-y-4 bg-gray-800 p-4 rounded-lg">
         {/* 🎨 Filters */}
-        <div className="flex lg:flex-col space-x-2 lg:space-x-0 lg:space-y-2 justify-center">
+        <div className="flex items-center  gap-3 justify-center">
           {["none", "grayscale(100%)", "sepia(100%)", "invert(100%)"].map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className="px-3 py-1 bg-gray-700 text-white rounded text-sm"
+              className="px-3 py-1 bg-slate-700 text-white rounded text-base hover:bg-slate-900 transition-all duration-300 ease-in-out"
             >
               {f === "none" ? "Normal" : f.replace("(100%)", "")}
             </button>
